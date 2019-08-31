@@ -7,11 +7,9 @@ import 'index.dart';
 abstract class ConfigEvent extends Equatable {
   ConfigEvent([List props = const <dynamic>[]]) : super(props);
   Future<ConfigState> applyAsync({ConfigState currentState, ConfigBloc bloc});
-
 }
 
 class DarkModeEvent extends ConfigEvent {
-
   final bool darkOn;
   DarkModeEvent(this.darkOn);
 
@@ -19,30 +17,30 @@ class DarkModeEvent extends ConfigEvent {
   String toString() => 'DarkModeEfent';
 
   @override
-  Future<ConfigState> applyAsync({ConfigState currentState, ConfigBloc bloc}) async {
+  Future<ConfigState> applyAsync(
+      {ConfigState currentState, ConfigBloc bloc}) async {
     try {
       bloc.darkModeOn = darkOn;
       DevFest.pref.setBool(DevFest.darkModePref, darkOn);
-    }catch(_, stackTrace) {
+    } catch (_, stackTrace) {
       print('$_$stackTrace');
       return ErrorConfigState(_?.toString());
     }
     return InConfigState();
   }
-
 }
 
 class LoadConfigEvent extends ConfigEvent {
-
   @override
   String toString() => 'LoadConfigEvent';
 
   @override
-  Future<ConfigState> applyAsync({ConfigState currentState, ConfigBloc bloc}) async {
+  Future<ConfigState> applyAsync(
+      {ConfigState currentState, ConfigBloc bloc}) async {
     try {
       await Future.delayed(Duration(seconds: 2));
       return InConfigState();
-    }catch(_, stackTrace) {
+    } catch (_, stackTrace) {
       print('$_$stackTrace');
       return ErrorConfigState(_?.toString());
     }

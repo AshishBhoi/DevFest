@@ -9,8 +9,7 @@ abstract class ConfigState extends Equatable {
 }
 
 class UnConfigState extends ConfigState {
-
-   @override
+  @override
   String toString() => 'UnConfigEvent';
 
   @override
@@ -20,10 +19,9 @@ class UnConfigState extends ConfigState {
 }
 
 class InConfigState extends ConfigState {
-
-   @override
+  @override
   String toString() => 'InConfigEvent';
-  
+
   @override
   ConfigState getStateCopy() {
     return null;
@@ -31,13 +29,12 @@ class InConfigState extends ConfigState {
 }
 
 class ErrorConfigState extends ConfigState {
-
   final String errorMessage;
   ErrorConfigState(this.errorMessage);
 
   @override
   String toString() => 'ErrorConfigEvent';
-  
+
   @override
   ConfigState getStateCopy() {
     return ErrorConfigState(this.errorMessage);

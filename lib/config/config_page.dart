@@ -26,9 +26,9 @@ class _ConfigPageState extends State<ConfigPage> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      builder: (context)=> configBloc,
-      child: BlocBuilder<ConfigBloc,ConfigState>(
-        builder: (context,state){
+      builder: (context) => configBloc,
+      child: BlocBuilder<ConfigBloc, ConfigState>(
+        builder: (context, state) {
           return MaterialApp(
             title: 'Google DevFest',
             debugShowCheckedModeBanner: false,
@@ -39,16 +39,15 @@ class _ConfigPageState extends State<ConfigPage> {
               primaryColor: configBloc.darkModeOn ? Colors.black : Colors.white,
               disabledColor: Colors.grey,
               cardColor: configBloc.darkModeOn ? Colors.black : Colors.white,
-              canvasColor: configBloc.darkModeOn ? Colors.black : Colors.grey[50],
-              brightness: configBloc.darkModeOn ? Brightness.dark : Brightness.light,
+              canvasColor:
+                  configBloc.darkModeOn ? Colors.black : Colors.grey[50],
+              brightness:
+                  configBloc.darkModeOn ? Brightness.dark : Brightness.light,
               buttonTheme: Theme.of(context).buttonTheme.copyWith(
-                colorScheme: configBloc.darkModeOn
-                  ? ColorScheme.dark()
-                  : ColorScheme.light()
-              ),
-              appBarTheme: AppBarTheme (
-                elevation: 0.0
-              ),
+                  colorScheme: configBloc.darkModeOn
+                      ? ColorScheme.dark()
+                      : ColorScheme.light()),
+              appBarTheme: AppBarTheme(elevation: 0.0),
             ),
             home: Scaffold(
               appBar: AppBar(),
