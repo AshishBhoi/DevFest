@@ -85,7 +85,7 @@ flutter:
   fonts:
     - family: GoogleSans
       fonts:
-        - asset: /assets/fonts/GoogleSansRegular.ttf
+        - asset: assets/fonts/GoogleSansRegular.ttf
 
   #
   # For details regarding fonts from package dependencies,
