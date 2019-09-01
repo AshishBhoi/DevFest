@@ -2,7 +2,7 @@
 
 A Flutter Dev Fest Application.
 
-![alt text](https://github.com/AshishBhoi/DevFest/blob/master/assets/images/banner_light.png)
+![alt text](https://raw.githubusercontent.com/AshishBhoi/DevFest/master/assets/images/banner_light.png)
 
 ## Details
 - DevFest App
