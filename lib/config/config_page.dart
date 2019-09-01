@@ -2,6 +2,7 @@ import 'package:devfest_demo/utils/devfest.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'index.dart';
+import 'package:devfest_demo/home/home_page.dart';
 
 class ConfigPage extends StatefulWidget {
   @override
@@ -20,7 +21,7 @@ class _ConfigPageState extends State<ConfigPage> {
 
   setupApp() {
     configBloc = ConfigBloc();
-    configBloc.darkModeOn = DevFest.pref.getBool(DevFest.darkModePref) ?? true;
+    configBloc.darkModeOn = DevFest.pref.getBool(DevFest.darkModePref) ?? false;
   }
 
   @override
@@ -49,10 +50,7 @@ class _ConfigPageState extends State<ConfigPage> {
                       : ColorScheme.light()),
               appBarTheme: AppBarTheme(elevation: 0.0),
             ),
-            home: Scaffold(
-              appBar: AppBar(),
-              body: Container(),
-            ),
+            home: HomePage(),
           );
         },
       ),
