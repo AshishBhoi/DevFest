@@ -33,6 +33,14 @@ class DevFest {
   static const String updateNowText = "Please update your app for seamless experience.";
   static const String checkNetText = "It seems like your internet connection is not active.";
 
+  //* Action Texts
+  static const String agenda_text = "Agenda";
+  static const String speakers_text = "Speakers";
+  static const String team_text = "Team";
+  static const String sponsors_text = "Sponsors";
+  static const String faq_text = "FAQ";
+  static const String map_text = "Locket US";
+
   //* Preference
   static SharedPreferences pref;
   static const String darkModePref = "darkModePref";
