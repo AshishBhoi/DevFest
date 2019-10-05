@@ -1,6 +1,9 @@
 
 name: Google DevFest App
-on: [push]
+on: 
+  push:
+    tags:
+    - '*'
 jobs:
   build:
     name: Build APK
