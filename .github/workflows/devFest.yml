@@ -2,8 +2,8 @@
 name: Google DevFest App
 on: [push]
 jobs:
-  test:
-    name: android
+  build:
+    name: Build APK
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
@@ -12,6 +12,12 @@ jobs:
           java-version: '12.x'
       - uses: subosito/flutter-action@v1
         with:
-          channel: 'stable'
+          channel: 'beta'
       - run: flutter pub get
-      - run: flutter build apk --debug
+      - run: flutter test
+      - run: flutter build apk --debug --target-platform  android-arm,android-arm64 --split-per-abi
+      - name: Create a APK
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: "build/app/outputs/apk/debug/*.apk"
+          token: ${{ secrets.TOKEN }}
